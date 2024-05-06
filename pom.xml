@@ -203,6 +203,7 @@
                         <exclude>com/bloggios/email/transformer/Transform.class</exclude>
                         <exclude>com/bloggios/email/ymlparser/**</exclude>
                         <exclude>com/bloggios/email/exception/payload/**</exclude>
+                        <exclude>com/bloggios/email/BloggiosEmailServiceApplication.class</exclude>
                     </excludes>
                 </configuration>
             </plugin>
