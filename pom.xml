@@ -5,12 +5,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.5</version>
+        <version>2.7.18</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.bloggios.email</groupId>
     <artifactId>bloggios-email-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1</version>
     <name>bloggios-email-service</name>
     <description>bloggios-email-service</description>
     <properties>
@@ -21,18 +21,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.elasticsearch.client</groupId>
-            <artifactId>elasticsearch-rest-high-level-client</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.kafka</groupId>
-            <artifactId>spring-kafka</artifactId>
         </dependency>
         <dependency>
             <groupId>io.micrometer</groupId>
@@ -50,30 +38,12 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.kafka</groupId>
-            <artifactId>spring-kafka-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aspects</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -112,8 +82,12 @@
             <artifactId>jackson-databind</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-oauth2-client</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
     </dependencies>
 
@@ -205,7 +179,7 @@
                                         <limit>
                                             <counter>LINE</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>0.80</minimum>
+                                            <minimum>0.8</minimum>
                                         </limit>
                                     </limits>
                                 </rule>
@@ -215,16 +189,21 @@
                 </executions>
                 <configuration>
                     <excludes>
-                        <exclude>com/bloggios/authserver/constants/**</exclude>
-                        <exclude>com/bloggios/authserver/entity/**</exclude>
-                        <exclude>com/bloggios/authserver/enums/**</exclude>
-                        <exclude>com/bloggios/authserver/exception/payload/**</exclude>
-                        <exclude>com/bloggios/authserver/payload/**</exclude>
-                        <exclude>com/bloggios/authserver/service/**</exclude>
-                        <exclude>com/bloggios/authserver/ymlparser/**</exclude>
-                        <exclude>com/bloggios/authserver/utils/**</exclude>
-                        <exclude>com/bloggios/authserver/processor/VoidProcess.class</exclude>
-                        <exclude>com/bloggios/authserver/transformer/Transform.class</exclude>
+                        <exclude>com/bloggios/email/constants/**</exclude>
+                        <exclude>com/bloggios/email/configuration/**</exclude>
+                        <exclude>com/bloggios/email/dao/**</exclude>
+                        <exclude>com/bloggios/email/entity/**</exclude>
+                        <exclude>com/bloggios/email/enums/**</exclude>
+                        <exclude>com/bloggios/email/javamail/**</exclude>
+                        <exclude>com/bloggios/email/payload/**</exclude>
+                        <exclude>com/bloggios/email/properties/**</exclude>
+                        <exclude>com/bloggios/email/rule/BusinessValidator.class</exclude>
+                        <exclude>com/bloggios/email/rule/Exhibitor.class</exclude>
+                        <exclude>com/bloggios/email/service/**</exclude>
+                        <exclude>com/bloggios/email/transformer/Transform.class</exclude>
+                        <exclude>com/bloggios/email/ymlparser/**</exclude>
+                        <exclude>com/bloggios/email/exception/payload/**</exclude>
+                        <exclude>com/bloggios/email/BloggiosEmailServiceApplication.class</exclude>
                     </excludes>
                 </configuration>
             </plugin>
