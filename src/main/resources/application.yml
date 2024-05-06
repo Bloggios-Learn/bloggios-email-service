@@ -1,0 +1,38 @@
+server:
+  servlet:
+    context-path: /email-service/v${application.version}
+spring:
+  application:
+    name: bloggios-email-service
+application:
+  version: @version@
+  api-key: ${BLOGGIOS_MAIL_API_KEY}
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    allow-redirects: true
+    service-url:
+      defaultZone: ${EUREKA_URL}
+    enabled: false
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
+mail-configuration:
+  google-mail: # Please add your gmail details below
+    host: ${MAIL_HOST}
+    port: ${MAIL_PORT}
+    password: ${MAIL_PASSWORD}
+    username: ${MAIL_USERNAME}
+bg-thread-pool:
+  internal-thread:
+    thread-prefix: notification-internal-
+    core-pool-size: 10
+    max-pool-size: 20
+    queue-capacity: 60
