@@ -4,6 +4,20 @@ server:
 spring:
   application:
     name: bloggios-email-service
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST}:5432/${POSTGRES_DATABASE}?currentSchema=mail-service
+    hikari:
+      username: ${POSTGRES_USERNAME} #Postgres Database username
+      password: ${POSTGRES_PASSWORD} #Postgres Database password
+      maximum-pool-size: ${POSTGRES_POOL_SIZE:100}
+      minimum-idle: ${POSTGRES_IDLE:7}
+      leak-detection-threshold: 120000
+      max-lifetime: 1800000
+      idle-timeout: 600000
+      connection-timeout: 600000
+  jpa:
+    hibernate:
+      ddl-auto: update # To automatically create and update tables
 application:
   version: @version@
   api-key: ${BLOGGIOS_MAIL_API_KEY}
